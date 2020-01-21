@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>sample</title>
+</head>
+<body>
+  <h1>Hello!</h1>
+  <div id="el">
+    <qr :text="'qrcode'"></qr>
+    <div>
+      <label for="width">width</label><input id="width" v-model="width" /><br />
+      <label for="height">height</label><input id="height" v-model="height" /><br />
+      <label for="background">background</label><input id="background" v-model="background" /><br />
+      <label for="foreground">foreground</label><input id="foreground" v-model="foreground" /><br />
+      <label for="text">text</label><input id="text" v-model="text" /><br />
+    </div>
+    <qr :width="width" :height="height" :background="background" :foreground="foreground" :text="text"></qr>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+  <script src="../dist/vue-ts-qrcode.min.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#el',
+      components: ['qr'],
+      data: {
+        width: 100,
+        height: 100,
+        background: '#fff',
+        foreground: '#000',
+        text: 'hello'
+      }
+    })
+  </script>
+</body>
+</html>
